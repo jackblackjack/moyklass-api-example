@@ -1,0 +1,5 @@
+*.code-workspace
+.editorconfig
+.vagrant
+node_modules
+package-lock.json

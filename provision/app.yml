@@ -1,0 +1,20 @@
+- name: Moyklass api example
+  hosts:
+    - localhost
+    - "*"
+  gather_facts: true
+  strategy: debug
+  roles:
+    - ub_server_setup
+      server_setup_host_packages: 
+        - apt-transport-https
+        - net-tools
+        - software-properties-common
+        - mc
+        - ntpdate
+        - locales
+        - postgresql
+    - role: deb_server_ufw_up
+      server_ufw_up_services_rules:
+        - { rule: 'limit', port: '22', proto: 'tcp' }
+    - ub_node_up

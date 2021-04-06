@@ -1,0 +1,2 @@
+{"name":"error","hostname":"lena-vo","pid":11316,"level":50,"msg":"An error occured while run app: ReferenceError: compose is not defined","time":"2021-04-06T08:59:49.676Z","v":0}
+{"name":"error","hostname":"lena-vo","pid":11964,"level":50,"msg":"An error occured while run app: ReferenceError: compose is not defined","time":"2021-04-06T09:00:28.581Z","v":0}

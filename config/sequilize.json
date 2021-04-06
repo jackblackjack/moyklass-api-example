@@ -1,0 +1,26 @@
+{
+  "development": {
+	"database": "moyklass-api-example",
+	"username": "postgres",
+	"password": "myPassword",
+	"host": "192.168.33.81",
+	"dialect": "postgres",
+	"port": 5432
+  },
+  "test": {
+	"database": "moyklass-api-example",
+	"username": "postgres",
+	"password": "myPassword",
+	"host": "192.168.33.81",
+	"dialect": "postgres",
+	"port": 5432
+  },
+  "production": {
+	"database": "moyklass-api-example",
+	"username": "postgres",
+	"password": "myPassword",
+	"host": "192.168.33.81",
+	"dialect": "postgres",
+	"port": 5432
+  }
+}
