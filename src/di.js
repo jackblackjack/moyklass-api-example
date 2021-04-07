@@ -45,6 +45,7 @@ class DI {
   if (-1 === Object.keys(this['logger']).indexOf(level)) {
     this['logger'][level] = Bunyan.createLogger({
       "name": level,
+      "serializers": Bunyan.stdSerializers,
       "stream": new RotatingFileStream({
                                   ...{ "level": level },
 						                      ...Config.log,

@@ -10,7 +10,6 @@ const
     , Student = require('./student')
     , Lesson = require('./lesson')
 
-
 //
 // Pivot relationships.
 //
@@ -50,15 +49,16 @@ LessonStudents.associate = function(models) {
   })
 }
 
-Lesson.belongsToMany(Student, { through: LessonStudents })
-Student.belongsToMany(Lesson, { through: LessonStudents })
-
-Lesson.belongsToMany(Teacher, { through: LessonTeachers })
-Teacher.belongsToMany(Lesson, { through: LessonTeachers })
+const RelLessonTeachers = Lesson.belongsToMany(Teacher, { through: LessonTeachers })
+const RelLessonStudents = Lesson.belongsToMany(Student, { through: LessonStudents })
 
 // Export
 module.exports = {
   Teacher,
   Student,
-  Lesson
+  Lesson,
+  LessonTeachers,
+  LessonStudents,
+  RelLessonTeachers,
+  RelLessonStudents
 }

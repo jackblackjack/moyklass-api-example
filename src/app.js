@@ -10,6 +10,7 @@ const Path = require('path')
       , Koa = require('koa')
       , koaBunyanLogger = require('koa-bunyan-logger')
       , Compose = require('koa-compose')
+      , coBody = require('co-body')
       , { routes, allowedMethods } = require(Path.join(__dirname, 'routes.js'))
 
 try {
@@ -32,6 +33,11 @@ try {
   const stackComposed = Compose([
     // Use logger in app.
     koaBunyanLogger(DI.getLog('trace')),
+    // Parse body.
+    async (ctx, next) => {
+      ctx.request.body = await coBody.text(ctx.request)
+      await next()
+    },
     // Set unique request id in "X-Request-Id" header.
     (ctx, next) => {
       ctx.log.debug('Got a request from %s for %s', ctx.request.ip, ctx.path)
@@ -59,9 +65,9 @@ try {
 
         // Set the body.
         ctx.body = {
-            error: true,
-            message: err.message,
-            stack: (undefined !== err.stack ? err.stack : [])
+          error: true,
+          message: err.message,
+          stack: (undefined !== err.stack ? err.stack : [])
         }
       }
     },

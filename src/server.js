@@ -29,6 +29,6 @@ try {
   module.exports = server
 }
 catch(err) {
-  require(Path.join(__dirname, 'di.js')).getLog('error', 'Error while running: %O', err)
-  console.trace(err)
+  // Save error.
+  require(Path.join(__dirname, 'di.js')).getLog('error').error('Error while running: %O', err)
 }

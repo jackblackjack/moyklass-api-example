@@ -1,4 +1,7 @@
-const Path = require('path')
+/**
+ * App configuration.
+ * @version 2021-04-07
+ */
 module.exports = {
   app: {
       name: 'moyklass-api-example',
@@ -26,8 +29,8 @@ module.exports = {
     sequelize: {
       database: 'moyklass-api-example',
       username: 'postgres',
-      password: 'myPassword',
-      host: '192.168.33.81',
+      password: '',
+      host: '',
       dialect: 'postgres',
       dialectOptions: {
         collate: 'utf8_general_ci',
